@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="300.0" maxWidth="500.0" minHeight="300.0" minWidth="500.0" prefHeight="300.0" prefWidth="500.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gcs.mission.UpdateWayPointController">
+   <children>
+      <Label layoutX="47.0" layoutY="44.0" text="번호:" />
+      <Label layoutX="47.0" layoutY="82.0" text="종류:" />
+      <Label layoutX="47.0" layoutY="118.0" text="위도/점프위치:" />
+      <Label layoutX="47.0" layoutY="155.0" text="경도/반복횟수:" />
+      <Label layoutX="47.0" layoutY="193.0" text="고도:" />
+      <Separator layoutX="14.0" layoutY="242.0" prefWidth="480.0" />
+      <Button fx:id="btnUpdate" layoutX="173.0" layoutY="252.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="수정" />
+      <Button fx:id="btnCancel" layoutX="267.0" layoutY="252.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" text="취소" />
+      <TextField fx:id="txtNo" editable="false" layoutX="156.0" layoutY="37.0" prefHeight="30.0" prefWidth="300.0" />
+      <TextField fx:id="txtKind" editable="false" layoutX="156.0" layoutY="74.0" prefHeight="30.0" prefWidth="300.0" />
+      <TextField fx:id="txtLat" layoutX="156.0" layoutY="110.0" prefHeight="30.0" prefWidth="300.0" />
+      <TextField fx:id="txtLng" layoutX="156.0" layoutY="147.0" prefHeight="30.0" prefWidth="300.0" />
+      <TextField fx:id="txtAlt" layoutX="156.0" layoutY="185.0" prefHeight="30.0" prefWidth="300.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,126 @@
+.pane {
+}
+
+.pane2 {
+}
+
+.pane3 {
+	-fx-background-color: #353535;
+    -fx-background-radius: 10;
+}
+
+.label {
+}
+
+.slider {
+}
+
+.slider .axis { 
+}
+
+.slider .thumb { 
+	-fx-background-color: #ff0000;
+}
+
+.button {
+    -fx-padding: 10 0 10 15;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0,1,4;
+    -fx-background-radius: 9,8,5;
+    -fx-alignment: BASELINE_LEFT;
+}
+
+.button:pressed {
+    -fx-padding: 10 0 10 15;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0;
+    -fx-background-radius: 9;
+}
+
+.table-view .column-header {
+}
+
+.table-view .column-header-background{
+}
+
+.table-view .column-header-background .label{
+}
+
+.table-view .table-cell{
+}
+
+.table-row-cell{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+}
+
+.table-row-cell:odd{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+}
+
+.table-row-cell:selected {
+	-fx-background-color: #00ffff;
+    /*-fx-background-color: red;*/	
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 30;
+    -fx-tab-max-height: 30;
+}
+.tab .tab-label {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #EBEAF0;
+}
+.tab {
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-background-color: #17181B;
+}
+.tab:selected {
+    -fx-background-color: #21477A;
+}
+.tab:focused {
+    -fx-focus-color: transparent;
+}
+.tab {
+    -fx-padding: 0 30 0 30;
+}
+.tab-pane *.tab-header-background {
+    -fx-background-color: #17181B;
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0 0 0 0;
+}
+.tab:selected .focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tab-content-pane {
+	-fx-background-color: #353535
+}
+
+.menu-item .label {
+}
+
+.menu-item:focused {
+     -fx-background-color: #005797;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+/*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+

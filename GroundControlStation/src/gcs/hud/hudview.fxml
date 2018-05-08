@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="300.0" maxWidth="350.0" minHeight="300.0" minWidth="350.0" prefHeight="300.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gcs.hud.HudViewController">
+   <children>
+      <Canvas fx:id="canvas1" height="300.0" width="350.0" />
+      <Canvas fx:id="canvas2" height="300.0" width="350.0" />
+      <AnchorPane maxHeight="300.0" maxWidth="350.0" minHeight="300.0" minWidth="350.0" prefHeight="300.0" prefWidth="350.0">
+         <children>
+            <Label layoutX="313.0" layoutY="4.0" text="ALT">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAltitude" alignment="CENTER_RIGHT" layoutX="245.0" layoutY="25.0" prefWidth="100.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblArmed" layoutX="6.0" layoutY="25.0" text="DISARMED" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMode" layoutX="6.0" layoutY="45.0" text="GUIDED" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSystemStatus" layoutX="6.0" layoutY="5.0" text="POWEROFF">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBattery" layoutX="6.0" layoutY="274.0" text="BAT: 0V 0A 0%" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="17.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </children>
+</StackPane>

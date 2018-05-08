@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" prefHeight="768.0" prefWidth="1300.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gcs.appmain.AppMainController">
+   <left>
+      <VBox maxWidth="350.0" minWidth="350.0" prefWidth="350.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane fx:id="hudPane" maxHeight="300.0" maxWidth="350.0" minHeight="300.0" minWidth="350.0" prefHeight="300.0" prefWidth="350.0" />
+            <HBox spacing="10.0">
+               <children>
+                  <Button fx:id="btnUAVConnect" maxHeight="40.0" maxWidth="170.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="UAV 연결" HBox.hgrow="ALWAYS" />
+      			<Button fx:id="btnArm" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" text="시동 걸기" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="5.0">
+               <children>
+      			   <TextField fx:id="txtTakeoffHeight" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="20.0" text="10" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+      			   <Label text="m">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+      			   <Button fx:id="btnTakeoff" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" text="이륙" HBox.hgrow="ALWAYS" />
+      			<Button fx:id="btnLand" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" text="착륙" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnRtl" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" prefHeight="40.0" text="복귀" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <!-- <Separator prefWidth="200.0" /> -->
+            <TabPane fx:id="tabPane" nodeOrientation="LEFT_TO_RIGHT" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                  <Tab text="UAV정보">
+                     <content>
+                        <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="pane3">
+                           <children>
+                              <ImageView fitHeight="350" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/uav.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                <Tab fx:id="tabCamera" text="카메라뷰">
+                     <content>
+                        <StackPane fx:id="cameraPane" style="-fx-background-image: url(&quot;../images/uav.png&quot;);" styleClass="tab-content-pane">
+                           <children>
+                              <Canvas fx:id="cameraCanvas" height="250.0" width="300.0" />
+                           </children></StackPane>
+                     </content></Tab>
+                <Tab text="센서정보">
+                     <content>
+                        <GridPane gridLinesVisible="true">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="roll" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtRoll" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="°" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label> 
+                                 
+                              <Label text="pitch" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtPitch" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="°" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>    
+                                 
+                              <Label text="yaw" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtYaw" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="°" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                                 
+                              <Label text="lat" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtLat" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                                 
+                              <Label text="lng" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtLng" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                                 
+                              <Label text="alt" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtAlt" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="m" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                                  
+                              <Label text="head" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>    
+                             <Label fx:id="txtHead" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>    
+                              <Label text="°" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>      
+                                                              
+                              <Label text="aspeed" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtAspeed" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="m/s" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                                  
+                              <Label text="gspeed" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtGspeed" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="m/s" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                                 
+                              <Label text="opt_qua" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtOpticalFlowQuality" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>                                     
+                              <Label text="" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>                                     
+                                 
+                              <Label text="rf_dis" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="txtRangeFinderDistance" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>   
+                              <Label text="m" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>                                                      
+                           </children>
+                        </GridPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <StackPane fx:id="mapPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </StackPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar styleClass="pane">
+              <menus>
+                <Menu mnemonicParsing="false" text="설정">
+                  <items>
+                    <MenuItem fx:id="miConnConfig" mnemonicParsing="false" text="연결 설정">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                    <MenuItem fx:id="miThemeConfig" mnemonicParsing="false" text="테마 설정">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                    <MenuItem fx:id="miTtsConfig" mnemonicParsing="false" text="음성 안내 설정">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <SeparatorMenuItem mnemonicParsing="false" />   
+                    <MenuItem mnemonicParsing="false" text="종료" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" styleClass="pane" text="도움말">
+                  <items>
+                  	<MenuItem mnemonicParsing="false" text="사용 방법">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="F11" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                    <MenuItem mnemonicParsing="false" text="GCS 정보">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="F12" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                           </accelerator></MenuItem>
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="UAV Ground Control Station" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="34.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <ImageView fx:id="imgMission" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgConnection" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
